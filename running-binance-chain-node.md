@@ -23,7 +23,6 @@ brew install git-lfs
 git lfs install
 ```
 
-
 https://docs.binance.org/light-client.html
 
 If you encounter the following error, there is some issue with your `Git LFS` installation.
@@ -34,13 +33,63 @@ If you encounter the following error, there is some issue with your `Git LFS` in
 ~ <directory>: 4432 No such file or directory
 ```
 
-To solve this error, use
+This error occurs when your 
 
 ```
 wget
 ```
 
 https://github.com/binance-chain/node-binary/issues/122
+
+#### Testnet
+
+https://testnet-dex.binance.org/api/v1/peers
+
+##### Run in background
+
+```shell
+./lightd 
+  --chain-id "Binance-Chain-Nile" 
+  --node tcp://data-seed-pre-0-s1.binance.org:80 
+  > node.log  &
+```
+##### Run in terminal
+
+```shell
+./lightd 
+  --chain-id "Binance-Chain-Nile" 
+  --node tcp://data-seed-pre-0-s1.binance.org:80 
+```
+
+![localhost-status-27147](images/localhost-27147-status-testnet.png)
+
+#### Mainnet
+
+https://dex.binance.org/api/v1/peers
+
+##### Run in background
+
+```shell
+./lightd 
+  --chain-id "Binance-Chain-Tigris" 
+  --node tcp://dataseed1.binance.org:80 ![](images/localhost-24147-status-mainnet.png)
+  > node.log  &
+```
+##### Run in terminal
+```shell
+./lightd 
+  --chain-id "Binance-Chain-Tigris" 
+  --node tcp://dataseed1.binance.org:80 
+```
+
+#### Killing a process
+
+```shell
+ps aux | grep lightd
+kill -9 <pid> 
+```
+
+
 
 # Full Node
 
